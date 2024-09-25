@@ -1,0 +1,21 @@
+<!--NUMBER 1-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+     <p>Username:
+     <input type= 'text' name="Username" size='20' maxlength="30" />
+     </p>
+     <p>Password:
+     <input type="password" name="password" size="20" maxlength="30" />
+     </p>
+     <p>
+       <button type="button">Login</button> 
+     </p>
+     <p>
+      <button type="button">Logout</button> 
+     </p>
+  </body>
+</html>
