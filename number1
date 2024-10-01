@@ -1,21 +1,39 @@
-<!--NUMBER 1-->
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
-    <title></title>
+    <meta charset="utf-8">
+    <title>Practice</title>
   </head>
   <body>
-     <p>Username:
-     <input type= 'text' name="Username" size='20' maxlength="30" />
-     </p>
-     <p>Password:
-     <input type="password" name="password" size="20" maxlength="30" />
-     </p>
-     <p>
-       <button type="button">Login</button> 
-     </p>
-     <p>
-      <button type="button">Logout</button> 
-     </p>
+    <form action = "Number1_Login.php" method="post">
+      <label>Username: </label>
+      <input type= 'text' name="username" size='20' maxlength="30" /><br><br>
+      <label>Password: </label>
+      <input type="password" name="password" size="20" maxlength="30" /> <br><br>
+      <input type="submit" value="Log in" name="Login"> <br><br>
+      <input type="submit" value="Log out" name="Logout">
+   </form>
   </body>
 </html>
+<?php
+  if (isset($_POST["Login"])) {
+
+    if (!empty ($_POST["username"]) && !empty ($_POST["password"])) {
+
+        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["password"] = $_POST["password"];
+
+        echo "<b>User Logged in: <b>";
+        echo $_SESSION["username"] . "<br><br>";
+        echo "<b>Password: </b>" . "<br>";
+        echo md5($_SESSION["password"]);
+    }
+  }
+
+  if (isset($_POST["Logout"])) {
+    session_destroy();
+  }
+?>
